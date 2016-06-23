@@ -9,4 +9,4 @@
 7. from within the lms directory (recenly cloned git repo) run
 	- vagrant up
 
-#If you run into any apache or php config issue please let me know so i can update the fix to the chef cookbooks in order to keep this process completly automated.
+If you run into any apache or php config issue please let me know so i can update the fix to the chef cookbooks in order to keep this process completly automated.
