@@ -10,16 +10,12 @@
 # end
 
 include_recipe "php"
-# include_recipe "php::module_mysql"
 
 # Install php-mysql
 package 'php-mysql' do
     action :install
 end
 
-#######################################
-# USING apache2 COOKBOOK
-#######################################
 include_recipe "apache2"
 
 apache_site "default" do
@@ -31,10 +27,6 @@ web_app node['glms']['server_name'] do
   docroot node['lms_dev']['document_root']
   server_name node['glms']['server_name']
 end
-#######################################
-# END USING apache2 COOKBOOK
-#######################################
-
 
 #create log dirs
 directory node['lms_dev']['log_dir']['daily'] do
