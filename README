@@ -1,0 +1,5 @@
+1. install vagrant
+2. install virtualbox (or vmware_(desktop|fusion))
+3. install the chef development kit
+4. run
+	- vagrant plugin install vagrant-berkshelf

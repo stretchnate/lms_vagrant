@@ -1,0 +1,16 @@
+name 'lms_dev'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures lms_dev'
+long_description 'Installs/Configures lms_dev'
+version '0.1.0'
+
+depends 'selinux', '~> 0.9.0'
+depends 'firewall', '~> 2.4.0'
+depends 'vim', '~> 2.0.1'
+depends 'apache2', '~>3.2.2'
+depends 'mysql', '~> 7.0.0'
+depends 'php', '~> 1.9.0'
+# depends 'mysql2_chef_gem', '~> 1.1.0' #ruby gem used to connect to mysql
+#depends 'database', '~> 5.1.2'
