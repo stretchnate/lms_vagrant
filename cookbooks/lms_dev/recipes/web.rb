@@ -25,11 +25,13 @@ apache_site "default" do
   enable false
 end
 
-#conigure glms virtual host
-web_app node['glms']['server_name'] do
-  template 'glms.conf.erb'
-  docroot node['lms_dev']['document_root']
-  server_name node['glms']['server_name']
+#conigure virtual hosts
+node['server_name'].each_value do |server|
+  web_app server do
+    template server+'.conf.erb'
+    docroot node['lms_dev']['document_root']
+    server_name server
+  end
 end
 
 #create log dirs
