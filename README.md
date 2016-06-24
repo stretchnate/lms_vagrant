@@ -13,9 +13,11 @@
 5. clone the repository (or simply go to the url below and download the zip and extract it wherever you want vagrant to run from)
 	- git clone https://github.com/stretchnate/lms_vagrant.git
 
-6. if necessary make sure you have the lms svn repository checked out/cloned
+6. cd lms (or cd <whatever you named the folder you unzipped/cloned>)
 
-7. from within the lms directory (recenly cloned git repo) run
+7. if necessary make sure you have the lms svn repository checked out/cloned
+
+8. from within the lms directory (recenly cloned git repo) run
 	- vagrant up
 
 This should install CentOS 7.1 on a new virtualbox environment, install Apache and php on that vbox sync your local codebase to the vbox environment and configure apache and php.
