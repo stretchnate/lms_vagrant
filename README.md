@@ -20,7 +20,7 @@
 8. from within the lms directory (recenly cloned git repo) run
 	- vagrant up
 
-This should install CentOS 7.1 on a new virtualbox environment, install Apache and php on that vbox sync your local codebase to the vbox environment and configure apache and php.
+This should install CentOS 7.1 on a new virtualbox environment, install Apache and php on that vbox, sync your local codebase to the vbox environment and configure apache and php.
 Once finished you should be able to open a browser and hit either http://glms:8080, http://clms:8080 or http://gams:8080
 
 NOTE: at some point I anticipate forwarding port 80 from the host to the guest machine, when that time comes you'll no longer need to specify a port in the browser. I will update this document when that time comes.
