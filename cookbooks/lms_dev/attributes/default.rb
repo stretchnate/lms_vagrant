@@ -25,7 +25,8 @@ default['lms_dev']['lib_dir'] = {
 
 default['server_name'] = {
 	:glms => 'glms',
-	:clms => 'clms'
+	:clms => 'clms',
+	:gams => 'gams'
 }
 
 node.default['php']['directives'] = {"date.timezone" => "America/Boise"}
