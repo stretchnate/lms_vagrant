@@ -12,8 +12,6 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  # config.vm.box = "box-cutter/centos72"
-  # config.vm.box = "centos/7";
   config.vm.box = "bento/centos-7.1"
 
   # Disable automatic box update checking. If you disable this, then
@@ -41,7 +39,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "/opt/local/apache2/htdocs", "/var/www", create: true
-  config.vm.synced_folder "/opt/local/etc/php54", "/opt/local/etc/php54", create: true
+  #config.vm.synced_folder "/opt/local/etc/php54", "/opt/local/etc/php54", create: true
 
   #, owner: "web_admin", group: "web_admin"
 
@@ -81,9 +79,9 @@ Vagrant.configure("2") do |config|
 
   # Provision with Chef Solo
   config.vm.provision :chef_solo do |chef|
-      chef.run_list = [
-          "recipe[lms_dev::default]"
-      ]
+    chef.run_list = [
+      "recipe[lms_dev::default]"
+    ]
   end
 
 end
