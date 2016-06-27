@@ -38,9 +38,9 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "/opt/local/apache2/htdocs", "/var/www", create: true
-  #config.vm.synced_folder "/opt/local/etc/php54", "/opt/local/etc/php54", create: true
-
+  # config.vm.synced_folder "/opt/local/apache2/htdocs", "/var/www", create: true
+  config.vm.synced_folder "/opt/local/apache2/htdocs", "/opt/local/apache2/htdocs", create: true
+  
   #, owner: "web_admin", group: "web_admin"
 
   # Provider-specific configuration so you can fine-tune various

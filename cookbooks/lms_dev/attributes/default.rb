@@ -5,7 +5,8 @@ default['lms_dev']['open_ports'] = 80
 default['lms_dev']['user'] = 'www'
 default['lms_dev']['group'] = '_developer'
 
-default['lms_dev']['document_root'] = '/var/www/lms/public'
+# default['lms_dev']['document_root'] = '/var/www/lms/public'
+default['lms_dev']['document_root'] = '/opt/local/apache2/htdocs/lms/public'
 default['lms_dev']['php_ini_path'] = '/etc/php.ini'
 
 default['lms_dev']['log_dir'] = {
