@@ -15,9 +15,14 @@
 
 6. cd lms (or cd <whatever you named the folder you unzipped/cloned>)
 
-7. if necessary make sure you have the lms svn repository checked out/cloned
+7. Ensure you have the lms svn repository checked out/cloned
+NOTE: if you choose a different location for your code repository in step 7 you will need to change the location in Vagrantfile for config.vm.synced folder for '/opt/local/apache2/htdocs' to the location you used.
+Likewise, you will need to adjust the symlink in step 8 to fit your location
 
-8. from within the lms directory (recenly cloned git repo) run
+8. Ensure that you have a symlink from /opt/local/apache2/htdocs/library to /opt/local/apache2/htdocs/lms/library, if you don't have the symlink run the below command.
+	- ln -s /opt/local/apache2/htdocs/library /opt/local/apache2/htdocs/lms/library
+
+9. from within the lms directory (recenly cloned git repo) run
 	- vagrant up
 
 This should install CentOS 7.1 on a new virtualbox environment, install Apache and php on that vbox, sync your local codebase to the vbox environment and configure apache and php.
