@@ -23,11 +23,11 @@ Likewise, you will need to adjust the symlink in step 8 to fit your location
 	- ln -s /opt/local/apache2/htdocs/library /opt/local/apache2/htdocs/lms/library
 
 9. from within the lms directory (recenly cloned git repo) run
-	- vagrant up
+	- sudo vagrant up
 
 This should install CentOS 7.1 on a new virtualbox environment, install Apache and php on that vbox, sync your local codebase to the vbox environment and configure apache and php.
-Once finished you should be able to open a browser and hit either http://glms:8080, http://clms:8080 or http://gams:8080
+Once finished you should be able to open a browser and hit either http://glms, http://clms or http://gams
 
-NOTE: at some point I anticipate forwarding port 80 from the host to the guest machine, when that time comes you'll no longer need to specify a port in the browser. I will update this document when that time comes.
+NOTE: if you wish to forward a port other than port 80 to vagrant you must modify the host setting on the 'config.vm.network :forwarded_port, guest: 80, host: 80' line in the Vagrntfile to have the port you wish to forward to.
 
 If you run into any apache or php config issue please let me know so i can update the fix to the chef cookbooks in order to keep this process completly automated.
