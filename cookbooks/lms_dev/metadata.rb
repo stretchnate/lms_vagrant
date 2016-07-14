@@ -12,5 +12,7 @@ depends 'vim', '~> 2.0.1'
 depends 'apache2', '~>3.2.2'
 depends 'mysql', '~> 7.0.0'
 depends 'php', '~> 1.9.0'
+depends 'composer', '~> 2.3.0'
+depends 'phpunit', '~> 1.0.2'
 # depends 'mysql2_chef_gem', '~> 1.1.0' #ruby gem used to connect to mysql
 #depends 'database', '~> 5.1.2'

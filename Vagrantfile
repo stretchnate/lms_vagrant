@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network :forwarded_port, guest: 80, host: 80
-  # config.vm.network :forwarded_port, guest: 80, host: 8080
+  # config.vm.network :forwarded_port, guest: 8080, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "/opt/local/apache2/htdocs", "/var/www", create: true
-  config.vm.synced_folder "/opt/local/apache2/htdocs", "/opt/local/apache2/htdocs", create: true
+  config.vm.synced_folder "/opt/local/apache2/htdocs", "/opt/local/apache2/htdocs"
   
   #, owner: "web_admin", group: "web_admin"
 
@@ -80,6 +80,11 @@ Vagrant.configure("2") do |config|
   # Provision with Chef Solo
   config.vm.provision :chef_solo do |chef|
     chef.run_list = [
+      "recipe[vim]",
+      "recipe[php]",
+      "recipe[composer]",
+      "recipe[phpunit]",
+      "recipe[lms_dev::php_conf]",
       "recipe[lms_dev::default]"
     ]
   end

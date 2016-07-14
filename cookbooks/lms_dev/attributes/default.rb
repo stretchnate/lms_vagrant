@@ -30,7 +30,14 @@ default['server_name'] = {
 	:gams => 'gams'
 }
 
-node.default['php']['directives'] = {"date.timezone" => "America/Boise"}
+node.default['php']['directives'] = {
+	"date.timezone" => "America/Boise",
+	"error_reporting" => "E_ALL",
+	"display_errors" => "On",
+	"error_log" => "/var/log/lms/php.log",
+	"log_errors_max_len" => 4096,
+	"include_path" => '.:/opt/local/apache2/htdocs/lms/application:/usr/share/pear:/usr/share/php'
+}
 
 node.default['apache']['locale'] = 'America/Boise'
 node.default['apache']['mpm'] = 'prefork'
@@ -114,6 +121,7 @@ node.default['apache']['default_modules'] = [
 	"mod_cgi",
 	"php5"
 ]
-
 # #"mod_dumpio","mod_mpm_prefork","libphp5"
 
+#phpunit
+#node.default['phpunit']['version'] = '~> 4.8.26'

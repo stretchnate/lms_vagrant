@@ -10,7 +10,7 @@
 # end
 
 #install php
-include_recipe "php"
+# include_recipe "php"
 
 # Install php-mysql
 package 'php-mysql' do
@@ -54,4 +54,10 @@ node['lms_dev']['lib_dir'].each_value do |dir|
     mode '0777'
     recursive true
   end
+end
+
+file node['php']['directives']['error_log'] do
+  owner node['lms_dev']['user']
+  group node['lms_dev']['group']
+  mode '0777'
 end

@@ -11,3 +11,11 @@ user node['lms_dev']['user'] do
     system true
     shell '/bin/bash'
 end
+
+%w{apache _developer}.each do |g|
+	group g do
+		action :modify
+		members "vagrant"
+		append true
+	end
+end
