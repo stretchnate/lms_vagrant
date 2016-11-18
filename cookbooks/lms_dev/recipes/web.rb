@@ -17,6 +17,11 @@ package 'php-mysql' do
     action :install
 end
 
+#install mbstring
+package 'php-mbstring' do
+  action :install
+end
+
 #install apache
 include_recipe "apache2"
 
