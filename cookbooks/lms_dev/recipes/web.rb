@@ -30,6 +30,35 @@ apache_site "default" do
   enable false
 end
 
+#install gcc compiler
+package "gcc" do
+  action :install
+end
+
+#install apc for php
+php_pear "apc" do
+  action :install
+  directives(:shm_size => "512M", :ttl => 7200, :user_ttl => 7200, :gc_ttl => 3600, :slam_defense => 0)
+end
+
+#install memcached and it's dependencies
+package "libevent" do
+  action :install
+end
+
+package "libevent-devel" do
+  action :install
+end
+
+package "memcached" do
+  action :install
+end
+
+package "php-pecl-memcache" do
+  action :install
+end
+#end install memcached and it's dependencies
+
 #conigure virtual hosts
 node['server_name'].each_value do |server|
   web_app server do

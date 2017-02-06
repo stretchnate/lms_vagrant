@@ -36,6 +36,7 @@ node.default['php']['directives'] = {
 	"display_errors" => "On",
 	"error_log" => "/var/log/lms/php.log",
 	"log_errors_max_len" => 4096,
+	"memory_limit" => '4096M',
 	"include_path" => '.:/opt/local/apache2/htdocs/lms/application:/usr/share/pear:/usr/share/php'
 }
 
