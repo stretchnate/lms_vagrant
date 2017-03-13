@@ -38,7 +38,7 @@ end
 #install apc for php
 php_pear "apc" do
   action :install
-  directives(:shm_size => "512M", :ttl => 7200, :user_ttl => 7200, :gc_ttl => 3600, :slam_defense => 0)
+  directives(:shm_size => "128M", :ttl => 7200, :user_ttl => 7200, :gc_ttl => 3600, :slam_defense => 80)
 end
 
 #install memcached and it's dependencies
