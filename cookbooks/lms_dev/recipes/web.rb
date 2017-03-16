@@ -68,6 +68,15 @@ node['server_name'].each_value do |server|
   end
 end
 
+#create /var/log/lms
+directory node['lms_dev']['var_log_lms'] do 
+  action :create
+  owner node['lms_dev']['user']
+  group node['lms_dev']['group']
+  mode '0777'
+  recursive true
+end
+
 #create log dirs
 node['lms_dev']['log_dir'].each_value do |dir|
   directory dir do
