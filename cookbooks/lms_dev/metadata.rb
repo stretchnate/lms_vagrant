@@ -14,5 +14,6 @@ depends 'mysql', '~> 7.0.0'
 depends 'php', '~> 1.9.0'
 depends 'composer', '~> 2.3.0'
 depends 'phpunit', '~> 1.0.2'
+depends 'xdebug', '~> 1.0.0'
 # depends 'mysql2_chef_gem', '~> 1.1.0' #ruby gem used to connect to mysql
 #depends 'database', '~> 5.1.2'

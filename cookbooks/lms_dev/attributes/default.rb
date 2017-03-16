@@ -1,6 +1,9 @@
 default['firewall']['allow_ssh'] = true
 default['firewall']['firewalld']['permanent'] = true
-default['lms_dev']['open_ports'] = 80
+default['lms_dev']['open_ports'] = {
+	:http => 80,
+	:xdebug => 9000,
+}
 
 default['lms_dev']['user'] = 'www'
 default['lms_dev']['group'] = '_developer'
@@ -37,7 +40,11 @@ node.default['php']['directives'] = {
 	"error_log" => "/var/log/lms/php.log",
 	"log_errors_max_len" => 4096,
 	"memory_limit" => '4096M',
-	"include_path" => '.:/opt/local/apache2/htdocs/lms/application:/usr/share/pear:/usr/share/php'
+	"max_input_vars" => 5000,
+	"include_path" => '.:/opt/local/apache2/htdocs/lms/application:/usr/share/pear:/usr/share/php',
+	#jenkins directives
+	#"pcre.recursion_limit" => "10000000",
+	#"pcre.backtrack_limit" => "100000000"
 }
 
 node.default['apache']['locale'] = 'America/Boise'
@@ -126,3 +133,19 @@ node.default['apache']['default_modules'] = [
 
 #phpunit
 #node.default['phpunit']['version'] = '~> 4.8.26'
+
+default['xdebug']['version'] = '2.4.1'
+default['xdebug']['config_file'] = '/etc/php.d/xdebug.ini'
+default['xdebug']['directives'] = {
+	"default_enable" => 1,
+	"remote_enable" => 1,
+	"remote_host" => "10.0.2.2",
+	"max_nesting_level" => 1000,
+	"remote_connect_back" => 1,
+	"remote_port" => 9000,
+	"remote_handler" => "dbgp",
+	"remote_mode" => "req",
+	"remote_autostart" => 0,
+	"remote_log" => "/var/log/xdebug.log",
+	"idekey" => "netbeans-xdebug"
+}
