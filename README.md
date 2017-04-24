@@ -44,10 +44,10 @@ If you run into any apache or php config issue please let me know so i can updat
 4. Click the + to add an interpreter
 5. Choose SSH Credentials
 6. Specify credentials
-  1. Username: vagrant
-  2. Password: vagrant
-  3. port: 2222
-  4. Debugger Extension: /usr/lib64/php/modules/xdebug.so
+	1. Username: vagrant
+	2. Password: vagrant
+	3. port: 2222
+	4. Debugger Extension: /usr/lib64/php/modules/xdebug.so
 7. Click Appy / OK as often as needed to get it all saved
 
 #### Configure PHP Remote Debug
