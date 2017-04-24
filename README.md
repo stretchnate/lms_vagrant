@@ -67,3 +67,29 @@ If you run into any apache or php config issue please let me know so i can updat
 Click "Run" in the menu then click "Start Listening for PHP Debug Connections"
 
 NOTE: You will need the Xdebug Helper chrome extension (or a firefox equivalent)
+
+### Configuring Netbeans and XDebug
+#### Configure Debugging port and session id
+1. Open Preferences
+2. Click PHP
+3. Click the Debugging tab
+4. ensure Debugger port is set to 9000
+5. set Session ID to 'netbeans-xdebug'
+6. Click OK
+
+#### Configure Project
+1. open projects window
+2. right click on desired project <lms>
+3. click "properties"
+4. click "Run Configuration"
+5. click "Advanced" button
+6. set debug url to default
+7. in the path mapping box add the following 
+  1. /var/www/html/lms/public -> /var/www/html/lms/public (Server Path -> Project Path)
+8. Click "OK"
+9. Click "OK"
+
+#### Start the debugger
+Click "Debug" (in menu) -> Debug Project (or you can hold the control key while pressing F5)
+
+No special browser extensions are needed for netbeans
