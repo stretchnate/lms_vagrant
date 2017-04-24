@@ -34,3 +34,36 @@ Once finished you should be able to open a browser and hit either http://glms, h
 NOTE: if you wish to forward a port other than port 80 to vagrant you must modify the host setting on the 'config.vm.network :forwarded_port, guest: 80, host: 80' line in the Vagrntfile to have the port you wish to forward to.
 
 If you run into any apache or php config issue please let me know so i can update the fix to the chef cookbooks in order to keep this process completly automated.
+
+
+### Configuring PHPStorm and XDebug
+#### Add a PHP interpreter
+1. Open Settings / Preferences [command + ,]
+2. Click PHP under Langauages & Frameworks
+3. Click the ... button next to CLI Interpreter
+4. Click the + to add an interpreter
+5. Choose SSH Credentials
+6. Specify credentials
+  1. Username: vagrant
+  2. Password: vagrant
+  3. port: 2222
+  4. Debugger Extension: /usr/lib64/php/modules/xdebug.so
+7. Click Appy / OK as often as needed to get it all saved
+
+#### Configure PHP Remote Debug
+1. Click on Run in the menu
+2. Click on Edit Configurations
+3. Expand "Defaults" in the left panel
+4. Click on PHP Remote Debug
+5. Click on the ... button next to "Servers"
+  1. Name: glms
+  2. Host: glms
+  3. Port: 80
+  4. Debugger: xdebug
+  5. Map /var/www/html/lms to /var/www/html/lms (local -> remote)
+6. Click "Apply" / "OK" until you're happy.
+
+#### Start the debugger listening
+Click "Run" in the menu then click "Start Listening for PHP Debug Connections"
+
+NOTE: You will need the Xdebug Helper chrome extension (or a firefox equivalent)
