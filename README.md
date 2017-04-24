@@ -56,11 +56,11 @@ If you run into any apache or php config issue please let me know so i can updat
 3. Expand "Defaults" in the left panel
 4. Click on PHP Remote Debug
 5. Click on the ... button next to "Servers"
-  * Name: glms
-  * Host: glms
-  * Port: 80
-  * Debugger: xdebug
-  * Map /var/www/html/lms to /var/www/html/lms (local -> remote)
+	* Name: glms
+	* Host: glms
+	* Port: 80
+	* Debugger: xdebug
+	* Map /var/www/html/lms to /var/www/html/lms (local -> remote)
 6. Click "Apply" / "OK" until you're happy.
 
 #### Start the debugger listening
@@ -85,7 +85,7 @@ NOTE: You will need the Xdebug Helper chrome extension (or a firefox equivalent)
 5. click "Advanced" button
 6. set debug url to default
 7. in the path mapping box add the following 
-  * /var/www/html/lms/public -> /var/www/html/lms/public (Server Path -> Project Path)
+	* /var/www/html/lms/public -> /var/www/html/lms/public (Server Path -> Project Path)
 8. Click "OK"
 9. Click "OK"
 
