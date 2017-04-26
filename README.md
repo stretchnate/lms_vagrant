@@ -36,6 +36,7 @@ NOTE: if you wish to forward a port other than port 80 to vagrant you must modif
 NOTE: if you are using /var/www/html as your docroot for svn you will need to run the following commands so you can edit and commit changes (without using sudo) after you have checked out the repositories.
 
 sudo chown -R _www:_developer /var/www
+
 sudo chmod -R 775 /var/www
 
 If you run into any apache or php config issue please let me know so i can update the fix to the chef cookbooks in order to keep this process completly automated.
