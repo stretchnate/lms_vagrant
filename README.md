@@ -31,7 +31,11 @@ Likewise, you will need to adjust the symlink in step 8 to fit your location
 This should install CentOS 7.1 on a new virtualbox environment, install Apache and php on that vbox, sync your local codebase to the vbox environment and configure apache and php.
 Once finished you should be able to open a browser and hit either http://glms, http://clms or http://gams
 
+### Special Circumstances
 NOTE: if you wish to forward a port other than port 80 to vagrant you must modify the host setting on the 'config.vm.network :forwarded_port, guest: 80, host: 80' line in the Vagrntfile to have the port you wish to forward to.
+NOTE: if you are using /var/www/html as your docroot for svn you will need to run the following commands so you can edit and commit changes (without using sudo) after you have checked out the repositories
+sudo chown -R _www:_developer /var/www
+sudo chmod -R 775 /var/www
 
 If you run into any apache or php config issue please let me know so i can update the fix to the chef cookbooks in order to keep this process completly automated.
 

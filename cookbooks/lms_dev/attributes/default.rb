@@ -8,8 +8,8 @@ default['lms_dev']['open_ports'] = {
 default['lms_dev']['user'] = 'www'
 default['lms_dev']['group'] = '_developer'
 
-# default['lms_dev']['document_root'] = '/var/www/lms/public'
-default['lms_dev']['document_root'] = '/opt/local/apache2/htdocs/lms/public'
+default['lms_dev']['document_root'] = '/var/www/html/lms/public'
+# default['lms_dev']['document_root'] = '/opt/local/apache2/htdocs/lms/public'
 default['lms_dev']['php_ini_path'] = '/etc/php.ini'
 
 default['lms_dev']['var_log_lms'] = '/var/log/lms'
@@ -43,7 +43,7 @@ node.default['php']['directives'] = {
 	"log_errors_max_len" => 4096,
 	"memory_limit" => '4096M',
 	"max_input_vars" => 5000,
-	"include_path" => '.:/opt/local/apache2/htdocs/lms/application:/usr/share/pear:/usr/share/php',
+	"include_path" => '.:/var/www/html/lms/application:/usr/share/pear:/usr/share/php',
 	#jenkins directives
 	#"pcre.recursion_limit" => "10000000",
 	#"pcre.backtrack_limit" => "100000000"
