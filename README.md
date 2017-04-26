@@ -33,7 +33,8 @@ Once finished you should be able to open a browser and hit either http://glms, h
 
 ### Special Circumstances
 NOTE: if you wish to forward a port other than port 80 to vagrant you must modify the host setting on the 'config.vm.network :forwarded_port, guest: 80, host: 80' line in the Vagrntfile to have the port you wish to forward to.
-NOTE: if you are using /var/www/html as your docroot for svn you will need to run the following commands so you can edit and commit changes (without using sudo) after you have checked out the repositories
+NOTE: if you are using /var/www/html as your docroot for svn you will need to run the following commands so you can edit and commit changes (without using sudo) after you have checked out the repositories.
+
 sudo chown -R _www:_developer /var/www
 sudo chmod -R 775 /var/www
 
