@@ -2,12 +2,12 @@
   ServerName <%= node['server_name']['glms'] %>
   ServerAdmin 'ops@example.com'
 
-  DocumentRoot <%= node['lms_dev']['document_root'] %>
+  DocumentRoot <%= node['lms_dev']['server_root'] + node['glms']['document_root'] %>
   <Directory "/">
     Options FollowSymLinks
     AllowOverride None
   </Directory>
-  <Directory <%= node['lms_dev']['document_root'] %> >
+  <Directory <%= node['lms_dev']['server_root'] + node['glms']['document_root'] %> >
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Allow from all

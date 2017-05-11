@@ -8,8 +8,8 @@ default['lms_dev']['open_ports'] = {
 default['lms_dev']['user'] = 'www'
 default['lms_dev']['group'] = '_developer'
 
-default['lms_dev']['document_root'] = '/var/www/html/lms/public'
-# default['lms_dev']['document_root'] = '/opt/local/apache2/htdocs/lms/public'
+default['lms_dev']['server_root'] = '/var/www/html/'
+
 default['lms_dev']['php_ini_path'] = '/etc/php.ini'
 
 default['lms_dev']['var_log_lms'] = '/var/log/lms'
@@ -32,8 +32,34 @@ default['lms_dev']['lib_dir'] = {
 default['server_name'] = {
 	:glms => 'glms',
 	:clms => 'clms',
-	:gams => 'gams'
+	:gams => 'gams',
+	:cl => 'cl',
+	:clcp => 'clcp',
+	:gl => 'gl',
+	:glcp => 'glcp',
+	:ga => 'ga',
+	:gacp => 'gacp',
+	:ips => 'ips'
 }
+
+default['glms']['document_root'] = 'lms/public'
+default['clms']['document_root'] = 'lms/public'
+default['gams']['document_root'] = 'lms/public'
+# default['lms_dev']['document_root'] = '/opt/local/apache2/htdocs/lms/public'
+#clearline loans
+default['cl']['document_root'] = 'cll'
+#clearline customer portal
+default['clcp']['document_root'] = 'clcp'
+#greenline loans
+default['gl']['document_root'] = 'gll'
+#greenline customer portal
+default['glcp']['document_root'] = 'glcp'
+#greenarrow loans
+default['ga']['document_root'] = 'gal'
+#greenarrow customer portal
+default['gacp']['document_root'] = 'gacp'
+#ips
+default['ips']['document_root'] = 'ips/public'
 
 node.default['php']['directives'] = {
 	"date.timezone" => "America/Boise",
@@ -43,7 +69,7 @@ node.default['php']['directives'] = {
 	"log_errors_max_len" => 4096,
 	"memory_limit" => '4096M',
 	"max_input_vars" => 5000,
-	"include_path" => '.:/var/www/html/lms/application:/usr/share/pear:/usr/share/php',
+	"include_path" => '.:'+default['lms_dev']['server_root']+'lms/application:/usr/share/pear:/usr/share/php',
 	#jenkins directives
 	#"pcre.recursion_limit" => "10000000",
 	#"pcre.backtrack_limit" => "100000000"

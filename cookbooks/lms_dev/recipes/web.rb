@@ -63,7 +63,7 @@ end
 node['server_name'].each_value do |server|
   web_app server do
     template server+'.conf.erb'
-    docroot node['lms_dev']['document_root']
+    docroot node['lms_dev']['server_root'] + node[server]['document_root']
     server_name server
   end
 end

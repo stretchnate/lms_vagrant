@@ -1,13 +1,13 @@
 <VirtualHost *:80>
-  ServerName <%= node['server_name']['clms'] %>
+  ServerName <%= node['server_name']['cl'] %>
   ServerAdmin 'ops@example.com'
 
-  DocumentRoot <%= node['lms_dev']['server_root'] + node['clms']['document_root'] %>
+  DocumentRoot <%= node['lms_dev']['server_root'] + node['cl']['document_root'] %>
   <Directory "/">
     Options FollowSymLinks
     AllowOverride None
   </Directory>
-  <Directory <%= node['lms_dev']['server_root'] + node['clms']['document_root'] %> >
+  <Directory <%= node['lms_dev']['server_root'] + node['cl']['document_root'] %> >
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Allow from all
