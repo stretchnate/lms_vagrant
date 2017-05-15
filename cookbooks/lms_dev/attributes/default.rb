@@ -9,6 +9,7 @@ default['lms_dev']['user'] = 'www'
 default['lms_dev']['group'] = '_developer'
 
 default['lms_dev']['server_root'] = '/var/www/html/'
+# default['lms_dev']['server_root'] = '/opt/local/apache2/htdocs/'
 
 default['lms_dev']['php_ini_path'] = '/etc/php.ini'
 
@@ -45,7 +46,7 @@ default['server_name'] = {
 default['glms']['document_root'] = 'lms/public'
 default['clms']['document_root'] = 'lms/public'
 default['gams']['document_root'] = 'lms/public'
-# default['lms_dev']['document_root'] = '/opt/local/apache2/htdocs/lms/public'
+
 #clearline loans
 default['cl']['document_root'] = 'cll'
 #clearline customer portal

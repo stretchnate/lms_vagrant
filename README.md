@@ -19,11 +19,11 @@
 6. cd lms (or cd <whatever you named the folder you unzipped/cloned>)
 
 7. Ensure you have the lms svn repository checked out/cloned
-NOTE: if you choose a different location for your code repository in step 7 you will need to change the location in Vagrantfile for config.vm.synced folder for '/opt/local/apache2/htdocs' to the location you used.
+NOTE: if you choose a different location for your code repository in step 7 you will need to change the location in Vagrantfile for config.vm.synced folder for '/var/www/html' to the location you used.
 Likewise, you will need to adjust the symlink in step 8 to fit your location
 
-8. Ensure that you have a symlink from /opt/local/apache2/htdocs/library to /opt/local/apache2/htdocs/lms/library, if you don't have the symlink run the below command.
-	- ln -s /opt/local/apache2/htdocs/library /opt/local/apache2/htdocs/lms/library
+8. Ensure that you have a symlink from /var/www/html/library to /var/www/html/lms/library, if you don't have the symlink run the below command.
+	- ln -s /var/www/html/library /var/www/html/lms/library
 
 9. from within the lms directory (recenly cloned git repo) run
 	- sudo vagrant up
