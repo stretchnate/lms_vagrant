@@ -69,7 +69,7 @@ node.default['php']['directives'] = {
 	"error_log" => "/var/log/lms/php.log",
 	"log_errors_max_len" => 4096,
 	"memory_limit" => '4096M',
-	"max_input_vars" => 5000,
+	"max_input_vars" => 10000,
 	"include_path" => '.:'+default['lms_dev']['server_root']+'lms/application:/usr/share/pear:/usr/share/php',
 	#jenkins directives
 	#"pcre.recursion_limit" => "10000000",
