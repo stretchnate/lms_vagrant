@@ -104,3 +104,10 @@ file node['php']['directives']['error_log'] do
   group node['lms_dev']['group']
   mode '0777'
 end
+
+node['hosts'].each_pair do |ipaddress, hosts|
+  hostsfile_entry ipaddress do
+    hostname hosts
+    action :create
+  end
+end

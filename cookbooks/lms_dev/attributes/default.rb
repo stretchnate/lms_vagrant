@@ -76,6 +76,11 @@ node.default['php']['directives'] = {
 	#"pcre.backtrack_limit" => "100000000"
 }
 
+#/etc/hosts file
+node.default['hosts'] = {
+	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp galms'
+}
+
 node.default['apache']['locale'] = 'America/Boise'
 node.default['apache']['mpm'] = 'prefork'
 node.default['apache']['default_modules'] = [
