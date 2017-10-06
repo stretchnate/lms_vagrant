@@ -84,11 +84,13 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.run_list = [
       "recipe[vim]",
+      "recipe[java]",
       "recipe[php]",
       "recipe[composer]",
       "recipe[phpunit]",
       "recipe[lms_dev::php_conf]",
       "recipe[lms_dev::default]",
+      "recipe[lms_dev::subversion_client]",
       "recipe[xdebug]"
     ]
   end

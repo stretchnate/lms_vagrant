@@ -62,6 +62,12 @@ default['gacp']['document_root'] = 'gacp'
 #ips
 default['ips']['document_root'] = 'ips/public'
 
+default['java']['install_flavor'] = 'oracle'
+default['java']['jdk_version'] = 8
+default['java']['oracle']['accept_oracle_download_terms'] = true
+
+default['subversion']['wandisco_repo_path'] = '/etc/yum.repos.d/wandisco-svn.repo'
+
 node.default['php']['directives'] = {
 	"date.timezone" => "America/Boise",
 	"error_reporting" => "E_ALL",
@@ -78,7 +84,7 @@ node.default['php']['directives'] = {
 
 #/etc/hosts file
 node.default['hosts'] = {
-	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp galms'
+	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams'
 }
 
 node.default['apache']['locale'] = 'America/Boise'

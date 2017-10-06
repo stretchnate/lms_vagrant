@@ -4,6 +4,7 @@ metadata
 cookbook 'selinux', '~> 0.9.0'
 cookbook 'firewall', '~> 2.4.0'
 cookbook 'vim', '~> 2.0.1'
+cookbook 'java', '~> 1.50.0'
 cookbook 'apache2', '~>3.3.0'
 cookbook 'hostsfile', '~>0.1.1'
 cookbook 'mysql', '~> 7.0.0'
