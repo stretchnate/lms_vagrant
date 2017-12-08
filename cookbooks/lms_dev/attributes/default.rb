@@ -27,13 +27,27 @@ default['lms_dev']['lib_dir'] = {
 	:cache => '/var/lib/lms/cache',
 	'1' => '/var/lib/lms/1',
 	'2' => '/var/lib/lms/2',
-	'3' => '/var/lib/lms/3'
+	'3' => '/var/lib/lms/3',
+	'4' => '/var/lib/lms/4',
+	'5' => '/var/lib/lms/1/loan_doc_templates',
+	'6' => '/var/lib/lms/1/loan_documents',
+	'7' => '/var/lib/lms/1/additional_documents',
+	'8' => '/var/lib/lms/2/loan_doc_templates',
+	'9' => '/var/lib/lms/2/loan_documents',
+	'10' => '/var/lib/lms/2/additional_documents',
+	'11' => '/var/lib/lms/3/loan_doc_templates',
+	'12' => '/var/lib/lms/3/loan_documents',
+	'13' => '/var/lib/lms/3/additional_documents',
+	'14' => '/var/lib/lms/4/loan_doc_templates',
+	'15' => '/var/lib/lms/4/loan_documents',
+	'16' => '/var/lib/lms/4/additional_documents',
 }
 
 default['server_name'] = {
 	:glms => 'glms',
 	:clms => 'clms',
 	:gams => 'gams',
+	:alph => 'alph',
 	:cl => 'cl',
 	:clcp => 'clcp',
 	:gl => 'gl',
@@ -46,6 +60,7 @@ default['server_name'] = {
 default['glms']['document_root'] = 'lms/public'
 default['clms']['document_root'] = 'lms/public'
 default['gams']['document_root'] = 'lms/public'
+default['alph']['document_root'] = 'lms/public'
 
 #clearline loans
 default['cl']['document_root'] = 'cll'
@@ -84,7 +99,7 @@ node.default['php']['directives'] = {
 
 #/etc/hosts file
 node.default['hosts'] = {
-	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams'
+	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams alph'
 }
 
 node.default['apache']['locale'] = 'America/Boise'
@@ -185,7 +200,7 @@ default['xdebug']['directives'] = {
 	"remote_port" => 9000,
 	"remote_handler" => "dbgp",
 	"remote_mode" => "req",
-	"remote_autostart" => 0,
+	"remote_autostart" => 1,
 	"remote_log" => "/var/log/xdebug.log",
 	"idekey" => "netbeans-xdebug"
 }
