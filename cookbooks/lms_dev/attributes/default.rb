@@ -48,6 +48,8 @@ default['server_name'] = {
 	:clms => 'clms',
 	:gams => 'gams',
 	:alph => 'alph',
+	:ap => 'ap',
+	:apcp => 'apcp',
 	:cl => 'cl',
 	:clcp => 'clcp',
 	:gl => 'gl',
@@ -62,6 +64,10 @@ default['clms']['document_root'] = 'lms/public'
 default['gams']['document_root'] = 'lms/public'
 default['alph']['document_root'] = 'lms/public'
 
+#alpha loans
+default['ap']['document_root'] = 'cll'
+#alpha customer portal
+default['apcp']['document_root'] = 'clcp'
 #clearline loans
 default['cl']['document_root'] = 'cll'
 #clearline customer portal
