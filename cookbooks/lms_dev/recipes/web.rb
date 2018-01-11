@@ -4,60 +4,10 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-# install mysql client
-# mysql_client 'default' do
-#   action :create
-# end
-
-#install php
-# include_recipe "php"
-
-# Install php-mysql
-package 'php-mysql' do
-    action :install
-end
-
-#install mbstring
-package 'php-mbstring' do
-  action :install
-end
-
-#install apache
-include_recipe "apache2"
-
 #disable apache's default site
 apache_site "default" do
   enable false
 end
-
-#install gcc compiler
-package "gcc" do
-  action :install
-end
-
-#install apc for php
-php_pear "apc" do
-  action :install
-  directives(:shm_size => "128M", :ttl => 7200, :user_ttl => 7200, :gc_ttl => 3600, :slam_defense => 80)
-end
-
-#install memcached and it's dependencies
-package "libevent" do
-  action :install
-end
-
-package "libevent-devel" do
-  action :install
-end
-
-package "memcached" do
-  action :install
-end
-
-package "php-pecl-memcache" do
-  action :install
-end
-#end install memcached and it's dependencies
 
 #conigure virtual hosts
 node['server_name'].each_value do |server|

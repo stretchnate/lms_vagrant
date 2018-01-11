@@ -9,7 +9,6 @@ default['lms_dev']['user'] = 'www'
 default['lms_dev']['group'] = '_developer'
 
 default['lms_dev']['server_root'] = '/var/www/html/'
-# default['lms_dev']['server_root'] = '/opt/local/apache2/htdocs/'
 
 default['lms_dev']['php_ini_path'] = '/etc/php.ini'
 
@@ -89,7 +88,10 @@ default['java']['oracle']['accept_oracle_download_terms'] = true
 
 default['subversion']['wandisco_repo_path'] = '/etc/yum.repos.d/wandisco-svn.repo'
 
-node.default['php']['directives'] = {
+# node.override['php']['version'] = "7.1.13"
+# node.override['php']['checksum'] = "12fcbf59c9eb9af215ef38815d5da39b9d74549092c34b0dfc31442699740ce9"
+# node.override['php']['url'] = 'http://php.net/get'
+default['php']['directives'] = {
 	"date.timezone" => "America/Boise",
 	"error_reporting" => "E_ALL",
 	"display_errors" => "On",
@@ -102,6 +104,9 @@ node.default['php']['directives'] = {
 	#"pcre.recursion_limit" => "10000000",
 	#"pcre.backtrack_limit" => "100000000"
 }
+
+node.default['phpunit']['install_method'] = 'composer'
+node.default['phpunit']['version'] = '6'
 
 #/etc/hosts file
 node.default['hosts'] = {
@@ -187,15 +192,11 @@ node.default['apache']['default_modules'] = [
 	"mod_proxy_scgi",
 	"mod_ssl",
 	"mod_systemd",
-	"mod_cgi",
-	"php5"
+	"mod_cgi"
 ]
 # #"mod_dumpio","mod_mpm_prefork","libphp5"
 
-#phpunit
-#node.default['phpunit']['version'] = '~> 4.8.26'
-
-default['xdebug']['version'] = '2.4.1'
+default['xdebug']['version'] = '2.5.5'
 default['xdebug']['config_file'] = '/etc/php.d/xdebug.ini'
 default['xdebug']['directives'] = {
 	"default_enable" => 1,
@@ -208,5 +209,5 @@ default['xdebug']['directives'] = {
 	"remote_mode" => "req",
 	"remote_autostart" => 1,
 	"remote_log" => "/var/log/xdebug.log",
-	"idekey" => "netbeans-xdebug"
+	"idekey" => "PHPSTORM"
 }

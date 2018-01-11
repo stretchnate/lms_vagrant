@@ -4,8 +4,10 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-include_recipe 'selinux::permissive'
+execute 'install_git' do
+	command 'yum install git -y'
+end
 include_recipe 'lms_dev::firewall'
 include_recipe 'lms_dev::web_user'
 include_recipe 'lms_dev::web'
-# include_recipe 'lms_dev::php_conf'
+include_recipe 'lms_dev::php'
