@@ -61,31 +61,18 @@ yum_package 'php71-php-pecl-apcu' do
 	action :install
 end
 
-#install gcc compiler
-# package "gcc" do
-#   action :install
-# end
+file '/etc/php.d/40-apcu.ini' do
+	action :delete
+end
 
-#install apc for php
-# php_pear "apc" do
-#   action :install
-#   directives(:shm_size => "128M", :ttl => 7200, :user_ttl => 7200, :gc_ttl => 3600, :slam_defense => 80)
-# end
+file '/etc/php.d/50-apc.ini' do
+	action :delete
+end
 
-# #install memcached and it's dependencies
-# package "libevent" do
-#   action :install
-# end
-
-# package "libevent-devel" do
-#   action :install
-# end
-
-# package "memcached" do
-#   action :install
-# end
-
-# package "php-pecl-memcache" do
-#   action :install
-# end
-#end install memcached and it's dependencies
+template '/etc/php.d/40-apcu.ini' do
+	source 'apcu.ini.erb'
+	owner 'root'
+	group 'root'
+	mode '0644'
+	notifies :restart, resources(:service => 'httpd')
+end

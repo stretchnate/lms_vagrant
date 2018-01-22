@@ -106,7 +106,7 @@ default['php']['directives'] = {
 }
 
 node.default['phpunit']['install_method'] = 'composer'
-node.default['phpunit']['version'] = '6'
+# node.default['phpunit']['version'] = '6.5'
 
 #/etc/hosts file
 node.default['hosts'] = {
@@ -195,6 +195,24 @@ node.default['apache']['default_modules'] = [
 	"mod_cgi"
 ]
 # #"mod_dumpio","mod_mpm_prefork","libphp5"
+
+#apcu.ini directives
+default['apcu'] = {
+	:extension => "apcu.so",
+	:enabled => 1,
+	:enable_cli => 0,
+	:preload_path => "",
+	:shm_size => "64M",
+	:ttl => 7200,
+	:gc_ttl => 3600,
+	:smart => 0,
+	:entries_hint => 4096,
+	:mmap_file_mask => "/tmp/apc.XXXXXX",
+	:slam_defense => 80,
+	:serializer => "'default'",
+	:use_request_time => 1,
+	:coredump_unmap => 0
+}
 
 default['xdebug']['version'] = '2.5.5'
 default['xdebug']['config_file'] = '/etc/php.d/xdebug.ini'

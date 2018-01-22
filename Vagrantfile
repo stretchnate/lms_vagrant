@@ -68,10 +68,12 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+     yum update
+     yum install -y git
+     yum install -y zip
+     yum install -y unzip
+  SHELL
 
   # enable berkshelf
   config.berkshelf.enabled = true
@@ -85,7 +87,6 @@ Vagrant.configure("2") do |config|
     chef.run_list = [
       "recipe[vim]",
       "recipe[java]",
-      # "recipe[git::default]",
       "recipe[selinux::permissive]",
       "recipe[lms_dev::default]",
       # "recipe[lms_dev::subversion_client]",
