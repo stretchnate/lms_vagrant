@@ -55,6 +55,8 @@ default['server_name'] = {
 	:glcp => 'glcp',
 	:ga => 'ga',
 	:gacp => 'gacp',
+	:qh => 'qh',
+	:qhcp => 'qhcp',
 	:ips => 'ips'
 }
 
@@ -79,6 +81,10 @@ default['glcp']['document_root'] = 'glcp'
 default['ga']['document_root'] = 'gal'
 #greenarrow customer portal
 default['gacp']['document_root'] = 'gacp'
+#quickhelp loans
+default['qh']['document_root'] = 'qhl'
+#quickhelp customer portal
+default['qhcp']['document_root'] = 'qhcp'
 #ips
 default['ips']['document_root'] = 'ips/public'
 
