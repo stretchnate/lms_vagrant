@@ -10,43 +10,12 @@ apache_site "default" do
 end
 
 #conigure virtual hosts
-node['server_name'].each_value do |server|
-  web_app server do
-    template server+'.conf.erb'
-    docroot node['lms_dev']['server_root'] + node[server]['document_root']
-    server_name server
-  end
-end
-
-#create /var/log/lms
-directory node['lms_dev']['var_log_lms'] do 
-  action :create
-  owner node['lms_dev']['user']
-  group node['lms_dev']['group']
-  mode '0777'
-  recursive true
-end
-
-#create log dirs
-node['lms_dev']['log_dir'].each_value do |dir|
-  directory dir do
-    action :create
-    owner node['lms_dev']['user']
-    group node['lms_dev']['group']
-    mode '0777'
-    recursive true
-  end
-end
-
-# # Create lib dirs
-node['lms_dev']['lib_dir'].each_value do |dir|
-  directory dir do
-    action :create
-    owner node['lms_dev']['user']
-    group node['lms_dev']['group']
-    mode '0777'
-    recursive true
-  end
+web_app node['server_name'] do |server|
+  # template server+'.conf.erb'
+  template 'money.local.conf.erb'
+  # docroot node['lms_dev']['server_root'] + node[server]['document_root']
+  docroot '/var/www/html/budget/public'
+  server_name server
 end
 
 file node['php']['directives']['error_log'] do

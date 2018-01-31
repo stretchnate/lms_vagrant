@@ -6,106 +6,30 @@ default['lms_dev']['open_ports'] = {
 }
 
 default['lms_dev']['user'] = 'www'
-default['lms_dev']['group'] = '_developer'
+default['lms_dev']['group'] = 'dev'
+
+# default['lms_dev']['var_log_lms'] = '/var/log/lms'
 
 default['lms_dev']['server_root'] = '/var/www/html/'
 
 default['lms_dev']['php_ini_path'] = '/etc/php.ini'
 
-default['lms_dev']['var_log_lms'] = '/var/log/lms'
+default['server_name'] = 'money.local'
+# default['server_name'] = {
+# 	:money => 'money.local'
+# }
 
-default['lms_dev']['log_dir'] = {
-	:daily => '/var/log/lms/daily',
-	:debug => '/var/log/lms/debug',
-	:leads => '/var/log/lms/leads',
-	:memory => '/var/log/lms/memory',
-	:rest => '/var/log/lms/rest'
-}
+default['money.local']['document_root'] = 'budget/public'
 
-default['lms_dev']['lib_dir'] = {
-	:cache => '/var/lib/lms/cache',
-	'1' => '/var/lib/lms/1',
-	'2' => '/var/lib/lms/2',
-	'3' => '/var/lib/lms/3',
-	'4' => '/var/lib/lms/4',
-	'5' => '/var/lib/lms/1/loan_doc_templates',
-	'6' => '/var/lib/lms/1/loan_documents',
-	'7' => '/var/lib/lms/1/additional_documents',
-	'8' => '/var/lib/lms/2/loan_doc_templates',
-	'9' => '/var/lib/lms/2/loan_documents',
-	'10' => '/var/lib/lms/2/additional_documents',
-	'11' => '/var/lib/lms/3/loan_doc_templates',
-	'12' => '/var/lib/lms/3/loan_documents',
-	'13' => '/var/lib/lms/3/additional_documents',
-	'14' => '/var/lib/lms/4/loan_doc_templates',
-	'15' => '/var/lib/lms/4/loan_documents',
-	'16' => '/var/lib/lms/4/additional_documents',
-}
-
-default['server_name'] = {
-	:glms => 'glms',
-	:clms => 'clms',
-	:gams => 'gams',
-	:alph => 'alph',
-	:ap => 'ap',
-	:apcp => 'apcp',
-	:cl => 'cl',
-	:clcp => 'clcp',
-	:gl => 'gl',
-	:glcp => 'glcp',
-	:ga => 'ga',
-	:gacp => 'gacp',
-	:qh => 'qh',
-	:qhcp => 'qhcp',
-	:ips => 'ips'
-}
-
-default['glms']['document_root'] = 'lms/public'
-default['clms']['document_root'] = 'lms/public'
-default['gams']['document_root'] = 'lms/public'
-default['alph']['document_root'] = 'lms/public'
-
-#alpha loans
-default['ap']['document_root'] = 'cll'
-#alpha customer portal
-default['apcp']['document_root'] = 'clcp'
-#clearline loans
-default['cl']['document_root'] = 'cll'
-#clearline customer portal
-default['clcp']['document_root'] = 'clcp'
-#greenline loans
-default['gl']['document_root'] = 'gll'
-#greenline customer portal
-default['glcp']['document_root'] = 'glcp'
-#greenarrow loans
-default['ga']['document_root'] = 'gal'
-#greenarrow customer portal
-default['gacp']['document_root'] = 'gacp'
-#quickhelp loans
-default['qh']['document_root'] = 'qhl'
-#quickhelp customer portal
-default['qhcp']['document_root'] = 'qhcp'
-#ips
-default['ips']['document_root'] = 'ips/public'
-
-default['java']['install_flavor'] = 'oracle'
-default['java']['jdk_version'] = 8
-default['java']['oracle']['accept_oracle_download_terms'] = true
-
-default['subversion']['wandisco_repo_path'] = '/etc/yum.repos.d/wandisco-svn.repo'
-
-# node.override['php']['version'] = "7.1.13"
-# node.override['php']['checksum'] = "12fcbf59c9eb9af215ef38815d5da39b9d74549092c34b0dfc31442699740ce9"
-# node.override['php']['url'] = 'http://php.net/get'
 default['php']['directives'] = {
 	"date.timezone" => "America/Boise",
 	"error_reporting" => "E_ALL",
 	"display_errors" => "On",
-	"error_log" => "/var/log/lms/php.log",
-	"log_errors_max_len" => 4096,
-	"memory_limit" => '4096M',
+	"error_log" => "/var/log/php.log",
+	"log_errors_max_len" => 2048,
+	"memory_limit" => '2048M',
 	"max_input_vars" => 10000,
-	"include_path" => '.:'+default['lms_dev']['server_root']+'lms/application:/usr/share/pear:/usr/share/php',
+	"include_path" => '.:'+default['lms_dev']['server_root']+'source/CI_3.1.6/application:/usr/share/pear:/usr/share/php',
 	#jenkins directives
 	#"pcre.recursion_limit" => "10000000",
 	#"pcre.backtrack_limit" => "100000000"
@@ -116,7 +40,7 @@ node.default['phpunit']['install_method'] = 'composer'
 
 #/etc/hosts file
 node.default['hosts'] = {
-	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams alph'
+	:'127.0.0.1' => 'money.local'
 }
 
 node.default['apache']['locale'] = 'America/Boise'

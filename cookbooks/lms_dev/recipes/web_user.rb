@@ -14,7 +14,7 @@ user node['lms_dev']['user'] do
     shell '/bin/bash'
 end
 
-%w{apache _developer}.each do |g|
+%w{apache dev}.each do |g|
 	group g do
 		action :modify
 		members "vagrant"
