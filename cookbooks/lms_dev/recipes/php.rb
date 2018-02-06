@@ -39,7 +39,7 @@ end
 # end
 
 # include_recipe "composer"
-include_recipe "phpunit"
+# include_recipe "phpunit"
 include_recipe "lms_dev::php_conf"
 
 #create new httpd.conf in /etc/httpd/conf/httpd.conf
@@ -52,14 +52,14 @@ template '/etc/httpd/conf/httpd.conf' do
 end
 
 #yum install php-pecl-apcu
-yum_package 'php-pecl-apcu' do
-	action :install
-end
+# yum_package 'php-pecl-apcu' do
+# 	action :install
+# end
 
 #yum install php71-php-pecl-apcu
-yum_package 'php71-php-pecl-apcu' do
-	action :install
-end
+# yum_package 'php71-php-pecl-apcu' do
+# 	action :install
+# end
 
 file '/etc/php.d/40-apcu.ini' do
 	action :delete
@@ -69,10 +69,10 @@ file '/etc/php.d/50-apc.ini' do
 	action :delete
 end
 
-template '/etc/php.d/40-apcu.ini' do
-	source 'apcu.ini.erb'
-	owner 'root'
-	group 'root'
-	mode '0644'
-	notifies :restart, resources(:service => 'httpd')
-end
+# template '/etc/php.d/40-apcu.ini' do
+# 	source 'apcu.ini.erb'
+# 	owner 'root'
+# 	group 'root'
+# 	mode '0644'
+# 	notifies :restart, resources(:service => 'httpd')
+# end

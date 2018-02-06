@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 8080, host: 8080
   #config.vm.network :forwarded_port, guest: 8080, host: 8080
 
   # Create a private network, which allows host-only access to the machine
@@ -74,6 +74,7 @@ Vagrant.configure("2") do |config|
      yum install -y git
      yum install -y zip
      yum install -y unzip
+     yum install -y java
   SHELL
 
   # enable berkshelf
@@ -86,12 +87,11 @@ Vagrant.configure("2") do |config|
   # Provision with Chef Solo
   config.vm.provision :chef_solo do |chef|
     chef.run_list = [
-      # "recipe[vim]",
-      # "recipe[java]",
-      "recipe[selinux::permissive]",
+      # "recipe[selinux::permissive]",
       "recipe[lms_dev::default]",
-      # "recipe[lms_dev::subversion_client]",
-      "recipe[xdebug]"
+      # "recipe[xdebug]",
+      # "recipe[nodejs]",
+      # "recipe[htpasswd]"
     ]
   end
 
