@@ -93,10 +93,8 @@ default['java']['jdk_version'] = 8
 default['java']['oracle']['accept_oracle_download_terms'] = true
 
 default['subversion']['wandisco_repo_path'] = '/etc/yum.repos.d/wandisco-svn.repo'
+default['subversion']['version'] = '1.7.14-10.el7.x86_64'
 
-# node.override['php']['version'] = "7.1.13"
-# node.override['php']['checksum'] = "12fcbf59c9eb9af215ef38815d5da39b9d74549092c34b0dfc31442699740ce9"
-# node.override['php']['url'] = 'http://php.net/get'
 default['php']['directives'] = {
 	"date.timezone" => "America/Boise",
 	"error_reporting" => "E_ALL",
@@ -220,8 +218,9 @@ default['apcu'] = {
 	:coredump_unmap => 0
 }
 
-default['xdebug']['version'] = '2.5.5'
-default['xdebug']['config_file'] = '/etc/php.d/xdebug.ini'
+default['xdebug']['version'] = '2.6.0'
+default['xdebug']['config_file'] = '/etc/php.d/40-xdebug.ini'
+default['xdebug']['web_server']['service_name'] = 'apache2'
 default['xdebug']['directives'] = {
 	"default_enable" => 1,
 	"remote_enable" => 1,
