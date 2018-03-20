@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network :forwarded_port, guest: 80, host: 80
-  #config.vm.network :forwarded_port, guest: 8080, host: 8080
+  # config.vm.network :forwarded_port, guest: 8080, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -73,6 +73,7 @@ Vagrant.configure("2") do |config|
      yum install -y git
      yum install -y zip
      yum install -y unzip
+     yum install -y gcc
   SHELL
 
   # enable berkshelf
@@ -88,9 +89,8 @@ Vagrant.configure("2") do |config|
       "recipe[vim]",
       "recipe[java]",
       "recipe[selinux::permissive]",
-      "recipe[lms_dev::default]",
-      # "recipe[lms_dev::subversion_client]",
-      "recipe[xdebug]"
+      "recipe[lms_dev::default]"
+      # "recipe[lms_dev::subversion_client]"
     ]
   end
 

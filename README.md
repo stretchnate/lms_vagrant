@@ -14,7 +14,11 @@
 	- vagrant plugin install vagrant-omnibus
 
 5. clone the repository (or simply go to the url below and download the zip and extract it wherever you want vagrant to run from)
-	- git clone https://github.com/stretchnate/lms_vagrant.git
+	- cd ~
+	- mkdir Projects -m 0777
+	- mkdir Projects/Vagrant -m 0777
+	- cd Projects/Vagrant
+	- git clone https://github.com/stretchnate/lms_vagrant.git lms
 
 6. cd lms (or cd <whatever you named the folder you unzipped/cloned>)
 
