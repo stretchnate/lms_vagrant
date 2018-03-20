@@ -106,6 +106,7 @@ default['php']['directives'] = {
 	"memory_limit" => '4096M',
 	"max_input_vars" => 10000,
 	"include_path" => '.:'+default['lms_dev']['server_root']+'lms/application:/usr/share/pear:/usr/share/php',
+	"short_open_tag" => 'Off'
 	#jenkins directives
 	#"pcre.recursion_limit" => "10000000",
 	#"pcre.backtrack_limit" => "100000000"
