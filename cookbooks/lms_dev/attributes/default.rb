@@ -40,6 +40,10 @@ default['lms_dev']['lib_dir'] = {
 	'14' => '/var/lib/lms/4/loan_doc_templates',
 	'15' => '/var/lib/lms/4/loan_documents',
 	'16' => '/var/lib/lms/4/additional_documents',
+	'17' => '/var/lib/lms/1/other_documents',
+	'18' => '/var/lib/lms/2/other_documents',
+	'19' => '/var/lib/lms/3/other_documents',
+	'20' => '/var/lib/lms/4/other_documents',
 }
 
 default['server_name'] = {
@@ -93,7 +97,7 @@ default['java']['jdk_version'] = 8
 default['java']['oracle']['accept_oracle_download_terms'] = true
 
 default['subversion']['wandisco_repo_path'] = '/etc/yum.repos.d/wandisco-svn.repo'
-default['subversion']['version'] = '1.7.14-10.el7.x86_64'
+default['subversion']['version'] = '1.9.7-1'
 
 default['php']['directives'] = {
 	"date.timezone" => "America/Boise",
@@ -115,7 +119,7 @@ node.default['phpunit']['install_method'] = 'composer'
 
 #/etc/hosts file
 node.default['hosts'] = {
-	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams alph'
+	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams alph ap apcp'
 }
 
 node.default['apache']['locale'] = 'America/Boise'
@@ -221,7 +225,7 @@ default['apcu'] = {
 
 default['xdebug']['version'] = '2.6.0'
 default['xdebug']['config_file'] = '/etc/php.d/40-xdebug.ini'
-default['xdebug']['web_server']['service_name'] = 'apache2'
+default['xdebug']['web_server']['service_name'] = 'httpd'
 default['xdebug']['directives'] = {
 	"default_enable" => 1,
 	"remote_enable" => 1,

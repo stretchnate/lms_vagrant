@@ -89,8 +89,8 @@ Vagrant.configure("2") do |config|
       "recipe[vim]",
       "recipe[java]",
       "recipe[selinux::permissive]",
-      "recipe[lms_dev::default]"
-      # "recipe[lms_dev::subversion_client]"
+      "recipe[lms_dev::default]",
+      "recipe[lms_dev::subversion_client]"
     ]
   end
 

@@ -10,4 +10,9 @@ template node['subversion']['wandisco_repo_path'] do
   mode '0644'
 end
 
-yum_package 'subversion'
+# yum_package 'subversion'
+
+execute 'install_subversion' do
+	command "yum install subversion-#{node['subversion']['version']} -y"
+	not_if "subversion --version | grep #{node['subversion']['version']}"
+end
