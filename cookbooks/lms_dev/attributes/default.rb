@@ -61,7 +61,7 @@ default['server_name'] = {
 	:gacp => 'gacp',
 	:qh => 'qh',
 	:qhcp => 'qhcp',
-	:ips => 'ips'
+	:ipsi => 'ipsi'
 }
 
 default['glms']['document_root'] = 'lms/public'
@@ -90,7 +90,7 @@ default['qh']['document_root'] = 'qhl'
 #quickhelp customer portal
 default['qhcp']['document_root'] = 'qhcp'
 #ips
-default['ips']['document_root'] = 'ips/public'
+default['ipsi']['document_root'] = 'ips/public'
 
 default['java']['install_flavor'] = 'oracle'
 default['java']['jdk_version'] = 8
@@ -119,7 +119,7 @@ node.default['phpunit']['install_method'] = 'composer'
 
 #/etc/hosts file
 node.default['hosts'] = {
-	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams alph ap apcp'
+	:'127.0.0.1' => 'lms gl glcp glms cl clcp clms ga gacp gams alph ap apcp ipsi'
 }
 
 node.default['apache']['locale'] = 'America/Boise'
