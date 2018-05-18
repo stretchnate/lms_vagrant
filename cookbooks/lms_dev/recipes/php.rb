@@ -32,7 +32,7 @@ execute 'install_php' do
 end
 
 execute 'install_php_parts' do
-	command 'yum install php-devel php-process php-xml php-pear php-mysql php-mbstring php-soap -y'
+	command 'yum install php-devel php-process php-xml php-pear php-mysql php-mbstring php-soap php-pecl-zip -y'
 end
 # execute 'yum-update' do
 # 	command 'yum update -y'
