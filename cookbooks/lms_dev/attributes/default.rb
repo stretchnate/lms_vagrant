@@ -61,9 +61,11 @@ default['server_name'] = {
 	:gacp => 'gacp',
 	:qh => 'qh',
 	:qhcp => 'qhcp',
-	:ipsi => 'ipsi'
+	:ipsi => 'ipsi',
+	:rms => 'rms'
 }
 
+default['rms']['document_root'] = 'rms/public'
 default['glms']['document_root'] = 'lms/public'
 default['clms']['document_root'] = 'lms/public'
 default['gams']['document_root'] = 'lms/public'
@@ -115,7 +117,7 @@ default['php']['directives'] = {
 }
 
 node.default['phpunit']['install_method'] = 'composer'
-# node.default['phpunit']['version'] = '6.5'
+node.default['phpunit']['version'] = '7.1'
 
 #/etc/hosts file
 node.default['hosts'] = {
