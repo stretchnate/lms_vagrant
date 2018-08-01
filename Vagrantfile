@@ -74,6 +74,7 @@ Vagrant.configure("2") do |config|
      yum install -y zip
      yum install -y unzip
      yum install -y gcc
+     yum install -y ca-certificates
   SHELL
 
   # enable berkshelf
