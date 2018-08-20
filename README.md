@@ -4,7 +4,7 @@
 2. install virtualbox ~> 5.0.20 r106931 (Sierra 5.1.20)
 	- download from https://www.virtualbox.org/wiki/Downloads
 
-3. install the chef development kit ~> 0.14.25 (Sierra 0.19.6)
+3. install the chef development kit ~> 0.14.25 (Sierra 0.19.6) (High Sierra 2.4.17)
 	- download installer from https://downloads.chef.io/chef-dk/
 
 4. install vagrant-berkshelf by running the command below in your terminal
