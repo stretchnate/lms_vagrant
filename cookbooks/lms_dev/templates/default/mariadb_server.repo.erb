@@ -1,0 +1,6 @@
+
+[mariadb]
+name = MariaDB
+baseurl = <%= node['lms_dev']['mariadb_server']['baseurl'] %>
+gpgkey=<%= node['lms_dev']['mariadb_server']['gpgkey'] %>
+gpgcheck=<%= node['lms_dev']['mariadb_server']['gpgcheck'] %>

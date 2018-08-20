@@ -3,6 +3,7 @@ default['firewall']['firewalld']['permanent'] = true
 default['lms_dev']['open_ports'] = {
 	:http => 80,
 	:xdebug => 9000,
+	:mysql => 3306
 }
 
 default['lms_dev']['user'] = 'www'
@@ -241,3 +242,9 @@ default['xdebug']['directives'] = {
 	"remote_log" => "/var/log/xdebug.log",
 	"idekey" => "PHPSTORM"
 }
+
+node.default['mariadb']['forbid_remote_root'] = false
+default['lms_dev']['mariadb_server']['location'] = '/etc/yum.repos.d/MariaDB.repo'
+default['lms_dev']['mariadb_server']['baseurl'] = 'http://yum.mariadb.org/10.1/centos7-amd64'
+default['lms_dev']['mariadb_server']['gpgkey'] = 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB'
+default['lms_dev']['mariadb_server']['gpgcheck'] = 1
