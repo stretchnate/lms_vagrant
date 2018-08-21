@@ -1,16 +1,18 @@
-1. install vagrant ~> 1.8.4 (Sierra 1.9.3)
+1. install vagrant ~> 2.1.2
 	- download from https://www.vagrantup.com
 
-2. install virtualbox ~> 5.0.20 r106931 (Sierra 5.1.20)
+2. install virtualbox ~> 5.2
 	- download from https://www.virtualbox.org/wiki/Downloads
 
-3. install the chef development kit ~> 0.14.25 (Sierra 0.19.6) (High Sierra 2.4.17)
+3. install the chef development kit ~> 3.1.0
 	- download installer from https://downloads.chef.io/chef-dk/
 
-4. install vagrant-berkshelf by running the command below in your terminal
+4. If you are updating a current vagrant install simply run 'vagrant plugin repair' and then move on to step 5, otherwise continue with steps 4a and 4b
+
+4a. install vagrant-berkshelf by running the command below in your terminal
 	- vagrant plugin install vagrant-berkshelf
 
-4a. install the omnibus plugin so we can tell vagrant what chef version to install on the client (This is especially crucial on Sierra)
+4b. install the omnibus plugin so we can tell vagrant what chef version to install on the client (This is especially crucial on Sierra)
 	- vagrant plugin install vagrant-omnibus
 
 5. clone the repository (or simply go to the url below and download the zip and extract it wherever you want vagrant to run from)
