@@ -83,7 +83,8 @@ Vagrant.configure("2") do |config|
   config.berkshelf.berksfile_path = "./cookbooks/lms_dev/Berksfile"
 
   # force chef version
-  config.omnibus.chef_version = '12.19.36'
+  # config.omnibus.chef_version = '12.19.36'
+  config.omnibus.chef_version = '12.22.3'
 
   # Provision with Chef Solo
   config.vm.provision :chef_solo do |chef|
