@@ -8,5 +8,8 @@ include_recipe 'lms_dev::firewall'
 include_recipe 'lms_dev::web_user'
 include_recipe 'lms_dev::web'
 include_recipe 'lms_dev::php'
-include_recipe 'lms_dev::mariadb_server'
+
+if node['lms_dev']['mariadb_server']['install'] == true
+	include_recipe 'lms_dev::mariadb_server'
+end
 include_recipe 'lms_dev::xdebug'

@@ -9,10 +9,10 @@
 
 4. If you are updating a current vagrant install simply run 'vagrant plugin repair' and then move on to step 5, otherwise continue with steps 4a and 4b
 
-4a. install vagrant-berkshelf by running the command below in your terminal
+    4a. install vagrant-berkshelf by running the command below in your terminal
 	- vagrant plugin install vagrant-berkshelf
 
-4b. install the omnibus plugin so we can tell vagrant what chef version to install on the client (This is especially crucial on Sierra)
+    4b. install the omnibus plugin so we can tell vagrant what chef version to install on the client (This is especially crucial on Sierra)
 	- vagrant plugin install vagrant-omnibus
 
 5. clone the repository (or simply go to the url below and download the zip and extract it wherever you want vagrant to run from)
@@ -33,6 +33,7 @@ Likewise, you will need to adjust the symlink in step 8 to fit your location
 
 9. from within the lms directory (recenly cloned git repo) run
 	- sudo vagrant up
+	- NOTE: the current setup installs a blank mariadb server on your guest machine (vagrant), if you don't want mariadb installed you can disable the installation by opening cookbooks/lms_dev/attributes/default.rb and setting default['lms_dev']['mariadb_server']['install'] to false.
 
 This should install CentOS 7.1 on a new virtualbox environment, install Apache and php on that vbox, sync your local codebase to the vbox environment and configure apache and php.
 Once finished you should be able to open a browser and hit either http://glms, http://clms or http://gams
