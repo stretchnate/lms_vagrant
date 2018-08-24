@@ -11,10 +11,34 @@ end
 
 #conigure virtual hosts
 node['server_name'].each_value do |server|
+  #default template is vhost
+  template_file = 'vhost.conf.erb'
+  if node['https'][server]
+    #set template to vhost_ssl
+    template_file = 'vhost_ssl.conf.erb'
+    node.default['server']['common_name'] = server
+    cert = ssl_certificate server do
+      namespace node['server']
+      notifies :restart, 'service[apache2]'
+    end
+    log server+" certificate is here: #{cert.cert_path}"
+    log server+" private key is here: #{cert.key_path}"
+    log server+" chain combined path is here: #{cert.chain_combined_path}"
+    log server+" chain path is here: #{cert.chain_path}"
+  end
+  log 'template file is '+template_file
   web_app server do
-    template server+'.conf.erb'
-    docroot node['lms_dev']['server_root'] + node[server]['document_root']
     server_name server
+    docroot node['lms_dev']['server_root'] + node[server]['document_root']
+    template template_file
+    if cert
+      ssl_key cert.key_path
+      ssl_cert cert.cert_path
+      ssl_chain cert.chain_path
+      redirect_engine node['lms_dev']['rewrite_rule']['engine']
+      redirect_https node['lms_dev']['rewrite_rule']['https']
+      redirect_https_rule node['lms_dev']['rewrite_rule']['https_redirect']
+    end
   end
 end
 

@@ -2,6 +2,7 @@ default['firewall']['allow_ssh'] = true
 default['firewall']['firewalld']['permanent'] = true
 default['lms_dev']['open_ports'] = {
 	:http => 80,
+	:https => 443,
 	:xdebug => 9000,
 	:mysql => 3306
 }
@@ -20,7 +21,8 @@ default['lms_dev']['log_dir'] = {
 	:debug => '/var/log/lms/debug',
 	:leads => '/var/log/lms/leads',
 	:memory => '/var/log/lms/memory',
-	:rest => '/var/log/lms/rest'
+	:rest => '/var/log/lms/rest',
+	:ips => '/var/log/ips'
 }
 
 default['lms_dev']['lib_dir'] = {
@@ -29,22 +31,29 @@ default['lms_dev']['lib_dir'] = {
 	'2' => '/var/lib/lms/2',
 	'3' => '/var/lib/lms/3',
 	'4' => '/var/lib/lms/4',
-	'5' => '/var/lib/lms/1/loan_doc_templates',
-	'6' => '/var/lib/lms/1/loan_documents',
-	'7' => '/var/lib/lms/1/additional_documents',
-	'8' => '/var/lib/lms/2/loan_doc_templates',
-	'9' => '/var/lib/lms/2/loan_documents',
-	'10' => '/var/lib/lms/2/additional_documents',
-	'11' => '/var/lib/lms/3/loan_doc_templates',
-	'12' => '/var/lib/lms/3/loan_documents',
-	'13' => '/var/lib/lms/3/additional_documents',
-	'14' => '/var/lib/lms/4/loan_doc_templates',
-	'15' => '/var/lib/lms/4/loan_documents',
-	'16' => '/var/lib/lms/4/additional_documents',
-	'17' => '/var/lib/lms/1/other_documents',
-	'18' => '/var/lib/lms/2/other_documents',
-	'19' => '/var/lib/lms/3/other_documents',
-	'20' => '/var/lib/lms/4/other_documents',
+	'5' => '/var/lib/lms/5',
+	'6' => '/var/lib/lms/1/loan_doc_templates',
+	'7' => '/var/lib/lms/1/loan_documents',
+	'8' => '/var/lib/lms/1/additional_documents',
+	'9' => '/var/lib/lms/2/loan_doc_templates',
+	'10' => '/var/lib/lms/2/loan_documents',
+	'11' => '/var/lib/lms/2/additional_documents',
+	'12' => '/var/lib/lms/3/loan_doc_templates',
+	'13' => '/var/lib/lms/3/loan_documents',
+	'14' => '/var/lib/lms/3/additional_documents',
+	'15' => '/var/lib/lms/4/loan_doc_templates',
+	'16' => '/var/lib/lms/4/loan_documents',
+	'17' => '/var/lib/lms/4/additional_documents',
+	'18' => '/var/lib/lms/5/loan_doc_templates',
+	'19' => '/var/lib/lms/5/loan_documents',
+	'20' => '/var/lib/lms/5/additional_documents',
+	'21' => '/var/lib/lms/1/other_documents',
+	'22' => '/var/lib/lms/2/other_documents',
+	'23' => '/var/lib/lms/3/other_documents',
+	'24' => '/var/lib/lms/4/other_documents',
+	'25' => '/var/lib/lms/5/other_documents',
+	'26' => '/var/lib/ips',
+	'27' => '/var/lib/ips/cache'
 }
 
 default['server_name'] = {
@@ -62,15 +71,29 @@ default['server_name'] = {
 	:gacp => 'gacp',
 	:qh => 'qh',
 	:qhcp => 'qhcp',
+	:qhms => 'qhms',
 	:ipsi => 'ipsi',
 	:rms => 'rms'
 }
+
+node.default['https'] = {
+	:glms => 'glms',
+	:clms => 'clms',
+	:gams => 'gams',
+	:qhms => 'qhms',
+	:alph => 'alph'
+}
+
+node.default['server']['common_name'] = ''
+node.default['server']['ssl_cert']['source'] = 'self-signed'
+node.default['server']['ssl_key']['source'] = 'self-signed'
 
 default['rms']['document_root'] = 'rms/public'
 default['glms']['document_root'] = 'lms/public'
 default['clms']['document_root'] = 'lms/public'
 default['gams']['document_root'] = 'lms/public'
 default['alph']['document_root'] = 'lms/public'
+default['qhms']['document_root'] = 'lms/public'
 
 #alpha loans
 default['ap']['document_root'] = 'cll'
@@ -93,7 +116,7 @@ default['qh']['document_root'] = 'qhl'
 #quickhelp customer portal
 default['qhcp']['document_root'] = 'qhcp'
 #ips
-default['ipsi']['document_root'] = 'ips/public'
+default['ipsi']['document_root'] = 'ipsi/public'
 
 default['java']['install_flavor'] = 'oracle'
 default['java']['jdk_version'] = 8
@@ -118,7 +141,7 @@ default['php']['directives'] = {
 }
 
 node.default['phpunit']['install_method'] = 'composer'
-node.default['phpunit']['version'] = '7.1'
+node.default['phpunit']['version'] = '6.5'
 
 #/etc/hosts file
 node.default['hosts'] = {
@@ -251,3 +274,7 @@ default['lms_dev']['mariadb_server']['location'] = '/etc/yum.repos.d/MariaDB.rep
 default['lms_dev']['mariadb_server']['baseurl'] = 'http://yum.mariadb.org/10.1/centos7-amd64'
 default['lms_dev']['mariadb_server']['gpgkey'] = 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB'
 default['lms_dev']['mariadb_server']['gpgcheck'] = 1
+
+default['lms_dev']['rewrite_rule']['engine'] = 'RewriteEngine On'
+default['lms_dev']['rewrite_rule']['https'] = 'RewriteCond %{HTTPS} off'
+default['lms_dev']['rewrite_rule']['https_redirect'] = 'RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]'

@@ -1,13 +1,13 @@
 <VirtualHost *:80>
-  ServerName <%= node['server_name']['qhcp'] %>
+  ServerName <%= @params[:server_name] %>
   ServerAdmin 'ops@example.com'
 
-  DocumentRoot <%= node['lms_dev']['server_root'] + node['qhcp']['document_root'] %>
+  DocumentRoot <%= @params[:docroot] %>
   <Directory "/">
     Options FollowSymLinks
     AllowOverride None
   </Directory>
-  <Directory <%= node['lms_dev']['server_root'] + node['qhcp']['document_root'] %> >
+  <Directory <%= @params[:docroot] %> >
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Allow from all
