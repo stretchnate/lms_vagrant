@@ -88,35 +88,103 @@ node.default['server']['common_name'] = ''
 node.default['server']['ssl_cert']['source'] = 'self-signed'
 node.default['server']['ssl_key']['source'] = 'self-signed'
 
-default['rms']['document_root'] = 'rms/public'
-default['glms']['document_root'] = 'lms/public'
-default['clms']['document_root'] = 'lms/public'
-default['gams']['document_root'] = 'lms/public'
-default['alph']['document_root'] = 'lms/public'
-default['qhms']['document_root'] = 'lms/public'
+default['rms'] = {
+	:document_root => 'rms/public',
+	:ci_env => 'SetEnv CI_ENV development'
+}
+
+default['glms'] = {
+	:document_root => 'lms/public',
+	:ci_env => 'SetEnv CI_ENV development'
+}
+
+default['clms'] = {
+	:document_root => 'lms/public',
+	:ci_env => 'SetEnv CI_ENV development'
+}
+
+default['gams'] = {
+	:document_root => 'lms/public',
+	:ci_env => 'SetEnv CI_ENV development'
+}
+
+default['alph'] = {
+	:document_root => 'lms/public',
+	:ci_env => 'SetEnv CI_ENV development'
+}
+
+default['qhms'] = {
+	:document_root => 'lms/public',
+	:ci_env => 'SetEnv CI_ENV development'
+}
+
 
 #alpha loans
-default['ap']['document_root'] = 'cll'
+default['ap'] = {
+	:document_root => 'cll',
+	:ci_env => ''
+}
+
 #alpha customer portal
-default['apcp']['document_root'] = 'clcp'
+default['apcp'] = {
+	:document_root => 'clcp',
+	:ci_env => ''
+}
+
 #clearline loans
-default['cl']['document_root'] = 'cll'
+default['cl'] = {
+	:document_root => 'cll',
+	:ci_env => ''
+}
+
 #clearline customer portal
-default['clcp']['document_root'] = 'clcp'
+default['clcp'] = {
+	:document_root => 'clcp',
+	:ci_env => ''
+}
+
 #greenline loans
-default['gl']['document_root'] = 'gll'
+default['gl'] = {
+	:document_root => 'gll',
+	:ci_env => ''
+}
+
 #greenline customer portal
-default['glcp']['document_root'] = 'glcp'
+default['glcp'] = {
+	:document_root => 'glcp',
+	:ci_env => ''
+}
+
 #greenarrow loans
-default['ga']['document_root'] = 'gal'
+default['ga'] = {
+	:document_root => 'gal',
+	:ci_env => ''
+}
+
 #greenarrow customer portal
-default['gacp']['document_root'] = 'gacp'
+default['gacp'] = {
+	:document_root => 'gacp',
+	:ci_env => ''
+}
+
 #quickhelp loans
-default['qh']['document_root'] = 'qhl'
+default['qh'] = {
+	:document_root => 'qhl',
+	:ci_env => ''
+}
+
 #quickhelp customer portal
-default['qhcp']['document_root'] = 'qhcp'
+default['qhcp'] = {
+	:document_root => 'qhcp',
+	:ci_env => ''
+}
+
 #ips
-default['ipsi']['document_root'] = 'ipsi/public'
+default['ipsi'] = {
+	:document_root => 'ipsi/public',
+	:ci_env => 'SetEnv CI_ENV development'
+}
+
 
 default['java']['install_flavor'] = 'oracle'
 default['java']['jdk_version'] = 8

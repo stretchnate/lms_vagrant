@@ -77,6 +77,7 @@ Vagrant.configure("2") do |config|
      yum install -y unzip
      yum install -y gcc
      yum install -y ca-certificates
+     timedatectl set-timezone America/Denver
   SHELL
 
   # enable berkshelf

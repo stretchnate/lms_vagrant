@@ -30,6 +30,7 @@ node['server_name'].each_value do |server|
   web_app server do
     server_name server
     docroot node['lms_dev']['server_root'] + node[server]['document_root']
+    ci_env node[server]['ci_env']
     template template_file
     if cert
       ssl_key cert.key_path
