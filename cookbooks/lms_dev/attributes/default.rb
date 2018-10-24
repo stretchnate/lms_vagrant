@@ -339,7 +339,7 @@ node.default['mariadb']['server_root_password'] = 'Integra2018!'
 node.default['mariadb']['bind-address'] = '0.0.0.0'
 default['lms_dev']['mariadb_server']['install'] = true
 default['lms_dev']['mariadb_server']['location'] = '/etc/yum.repos.d/MariaDB.repo'
-default['lms_dev']['mariadb_server']['baseurl'] = 'http://yum.mariadb.org/10.1/centos7-amd64'
+default['lms_dev']['mariadb_server']['baseurl'] = 'http://yum.mariadb.org/10.2/centos7-amd64'
 default['lms_dev']['mariadb_server']['gpgkey'] = 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB'
 default['lms_dev']['mariadb_server']['gpgcheck'] = 1
 
